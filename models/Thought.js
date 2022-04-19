@@ -12,6 +12,9 @@ const ThoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
+      getter: function () {
+        return this.createdAt.toLocaleString();
+      },
     },
     username: {
         type: String,
@@ -24,6 +27,7 @@ const ThoughtSchema = new Schema(
       virtuals: true,
       getters: true,
     },
+    id: false,
   }
 );
 
@@ -46,6 +50,9 @@ const ReactionSchema = new Schema(
       createdAt: {
         type: Date,
         default: Date.now(),
+        getter: function () {
+            return this.createdAt.toLocaleString();
+        },
       },
     },
     {
